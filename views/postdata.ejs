@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Your Data</title>
+</head>
+<body>
+  <%- include ('./partials/navbar.ejs') %>
+  <div id="post">
+    <form action="/table/post" method="post" id="post-wrap">
+      <label for="nim">NIM</label>
+      <input type="text" name="nim" class="forminput" id="nim">
+      <label for="nama">Nama</label>
+      <input type="text" name="nama" class="forminput" id="nama">
+      <label for="jurusan">Jurusan</label>
+      <input type="text" name="jurusan" class="forminput" id="jurusan">
+      <button type="submit" class="forminput" id="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

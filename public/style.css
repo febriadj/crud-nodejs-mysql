@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  color: #202020;
+  text-decoration: none;
+}
+
+/* navigation bar component */
+#nav {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 1px 10px #cfd1d8;
+  background-color: #fff;
+  z-index: 99;
+}
+#nav-wrap {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 80px;
+}
+.nav-menu a {
+  margin: 0 0 0 20px;
+}
+
+/* home page */
+#home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home-wrap {
+  width: 500px;
+  margin: 0 40px;
+}
+#home-wrap p {
+  margin: 20px 0 40px 0;
+}
+#home-wrap a {
+  border-radius: 20px;
+  padding: 10px 15px;
+  background: #1fb7dd;
+}
+
+/* table page */
+#table {
+  width: 100%;
+  padding: 100px 0 0 0;
+}
+#table-wrap {
+  margin: 0 80px;
+}
+th, td {
+  padding: 15px;
+  box-shadow: 1px 2px 5px #cfd1d8;
+}
+th:nth-child(1), td:nth-child(1){
+  width: 20px;
+  text-align: center;
+}
+th:nth-last-child(1), td:nth-last-child(1){
+  width: 150px;
+  text-align: center;
+}
+.aksi {
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.edit {
+  background: #fff782;
+}
+.hapus {
+  background: #ff9b9b;
+}
+
+/* post table page */
+#post {
+  padding: 100px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+#post-wrap {
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 1px 2px 30px #eaecf0;
+  border-radius: 20px;
+}
+#post-wrap .forminput {
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #cfd1d8;
+  outline: none;
+}
+#post-wrap #submit {
+  cursor: pointer;
+}
