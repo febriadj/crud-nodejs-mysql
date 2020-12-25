@@ -93,6 +93,11 @@ th:nth-last-child(1), td:nth-last-child(1){
   display: flex;
   justify-content: center;
 }
+#edit {
+  padding: 100px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
 #post-wrap {
   margin: 0 80px;
   display: flex;

@@ -33,14 +33,24 @@ app.get('/table', (req, res, next) => {
   });
 });
 
-app.get('/table/:id', (req, res, next) => {
+app.get('/table/edit/:id', (req, res, next) => {
   let id = req.params.id;
   let sql = `SELECT * from mahasiswa WHERE id = ${id}`;
   db.query(sql, (err, result) => {
     if (err) throw err;
     res.render('editdata', {
-      path: result[0],
+      data: result[0],
     });
+  });
+});
+
+app.post('/table/edit/:id', (req, res, next) => {
+  let id = req.params.id;
+  let {nim, nama, jurusan} = req.body;
+  let sql = `UPDATE mahasiswa SET nim = '${nim}', nama = '${nama}', jurusan = '${jurusan}' WHERE id = ${id};`;
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.redirect('/table');
   });
 });
 
@@ -48,8 +58,7 @@ app.get('/table/post', (req, res, next) => {
   res.render('postdata');
 });
 
-app.post('/table/post', (req, res, render) => {
-  console.log(req.body);
+app.post('/table/post', (req, res, next) => {
   let {nim, nama, jurusan} = req.body;
   let sql = `INSERT INTO mahasiswa VALUES(0, '${nim}', '${nama}', '${jurusan}')`;
   db.query(sql, (err, result) => {
@@ -57,7 +66,6 @@ app.post('/table/post', (req, res, render) => {
     res.redirect('/table');
   });
 });
-
 
 app.use((req, res, next) => {
   res.status(404).render('404');
