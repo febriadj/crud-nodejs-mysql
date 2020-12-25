@@ -33,6 +33,17 @@ app.get('/table', (req, res, next) => {
   });
 });
 
+app.get('/table/:id', (req, res, next) => {
+  let id = req.params.id;
+  let sql = `SELECT * from mahasiswa WHERE id = ${id}`;
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.render('editdata', {
+      path: result[0],
+    });
+  });
+});
+
 app.get('/table/post', (req, res, next) => {
   res.render('postdata');
 });
@@ -44,8 +55,9 @@ app.post('/table/post', (req, res, render) => {
   db.query(sql, (err, result) => {
     if (err) throw err;
     res.redirect('/table');
-  })
-})
+  });
+});
+
 
 app.use((req, res, next) => {
   res.status(404).render('404');
