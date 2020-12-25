@@ -33,6 +33,7 @@ app.get('/table', (req, res, next) => {
   });
 });
 
+
 app.get('/table/edit/:id', (req, res, next) => {
   let id = req.params.id;
   let sql = `SELECT * from mahasiswa WHERE id = ${id}`;
@@ -61,6 +62,15 @@ app.get('/table/post', (req, res, next) => {
 app.post('/table/post', (req, res, next) => {
   let {nim, nama, jurusan} = req.body;
   let sql = `INSERT INTO mahasiswa VALUES(0, '${nim}', '${nama}', '${jurusan}')`;
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.redirect('/table');
+  });
+});
+
+app.get('/table/delete/:id', (req, res, next) => {
+  let id = req.params.id;
+  let sql = `DELETE FROM mahasiswa WHERE id = ${id}`;
   db.query(sql, (err, result) => {
     if (err) throw err;
     res.redirect('/table');
